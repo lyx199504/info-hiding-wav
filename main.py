@@ -6,7 +6,7 @@
 from PyQt5 import QtWidgets
 from LSB import LSB
 
-class Photo(QtWidgets.QWidget):
+class WavHiding(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
         self.carrier = None
@@ -94,6 +94,6 @@ class Photo(QtWidgets.QWidget):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])
-    photo = Photo()
-    photo.show()
+    hiding = WavHiding()
+    hiding.show()
     app.exec_()
