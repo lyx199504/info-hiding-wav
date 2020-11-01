@@ -68,8 +68,11 @@ class Photo(QtWidgets.QWidget):
             self.stego = QtWidgets.QFileDialog.getSaveFileName(self, "保存隐藏文件", "./", "Wav Files (*.wav)")[0]
             if self.stego:
                 try:
-                    LSB.LSBHiding(self.carrier, self.message, self.stego)
-                    QtWidgets.QMessageBox.about(self, "温馨提示", "隐藏成功！")
+                    success = LSB.LSBHiding(self.carrier, self.message, self.stego)
+                    if success:
+                        QtWidgets.QMessageBox.about(self, "温馨提示", "隐藏成功！")
+                    else:
+                        QtWidgets.QMessageBox.about(self, "温馨提示", "隐藏失败，信息文件超过音频文件可存储位数！")
                     self.carrier = self.message = None
                 except:
                     QtWidgets.QMessageBox.about(self, "温馨提示", "隐藏失败！")
